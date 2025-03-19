@@ -2,6 +2,28 @@
 <html lang="en">
 <body>
 
+<h1>Clinical Note Sequence Diagram</h1>
+
+```mermaid
+sequenceDiagram
+    participant Patient
+    participant Practitioner
+    participant Encounter
+    participant Condition
+    participant ServiceRequest
+    participant MedicationRequest
+    participant DocumentReference
+
+    Patient->>Encounter: Starts a medical visit
+    Practitioner->>Encounter: Conducts assessment
+    Encounter->>Condition: Identifies a condition
+    Condition-->>ServiceRequest: Orders lab tests
+    Condition-->>MedicationRequest: Prescribes medication
+    ServiceRequest->>Practitioner: Practitioner reviews and approves lab order
+    MedicationRequest->>Practitioner: Practitioner reviews and approves medication order
+    Encounter->>DocumentReference: Creates sick leave note (SV6)
+    DocumentReference->>Patient: Sick note issued for employer/Kela
+```
 <h1>Lab Order Service Request</h1>
 
 <p>This repository provides an implementation of a FHIR-compliant lab order <code>ServiceRequest</code> for Finnish healthcare systems.</p>
@@ -156,6 +178,8 @@
 
 <h2>MedicationRequest</h2>
 <p>An example of a FHIR-compliant <code>MedicationRequest</code> can be found at: <a href="https://github.com/fhir-fi/finnish-base-profiles" target="_blank">Finnish Base Profiles Repository</a>.</p>
+
+
 
 <h2>📝 License</h2>
 <p>MIT License - Free to use and modify.</p>
