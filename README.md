@@ -26,7 +26,7 @@ sequenceDiagram
 ```
 <h1>Lab Order Service Request</h1>
 
-<p>This repository provides an implementation of a FHIR-compliant lab order <code>ServiceRequest</code> for Finnish healthcare systems.</p>
+<p>This paragraph provides an implementation of a FHIR-compliant lab order <code>ServiceRequest</code> for Finnish healthcare systems.</p>
 
 <h2>🔹 Features</h2>
 <ul>
@@ -82,9 +82,9 @@ sequenceDiagram
     </a></li>
 </ul>
 
-<h1>Finnish Sick Leave Note (Lääkärintodistus A - SV6)</h1>
+<h1>📄 Finnish Sick Leave Note (Lääkärintodistus A - SV6)</h1>
 
-<h2>Purpose</h2>
+<h2>🎯 Purpose</h2>
 <p>The Lääkärintodistus A (SV6) is a medical document used for:</p>
 <ul>
     <li>Applying sickness allowance from Kela.</li>
@@ -92,7 +92,7 @@ sequenceDiagram
     <li>Assessing rehabilitation plans.</li>
 </ul>
 
-<h2>FHIR Data</h2>
+<h2>📑 FHIR Data</h2>
 <p>The following FHIR DocumentReference example structure is used:</p>
 <pre><code>{
   "resourceType": "DocumentReference",
@@ -176,7 +176,7 @@ sequenceDiagram
 
 <p>More info: <a href="https://www.kela.fi">Kela’s official website</a>.</p>
 
-<h2>MedicationRequest</h2>
+<h2>💊 MedicationRequest</h2>
 <p>An example of a FHIR-compliant <code>MedicationRequest</code> can be found at: <a href="https://github.com/fhir-fi/finnish-base-profiles" target="_blank">Finnish Base Profiles Repository</a>.</p>
 
 
