@@ -17,7 +17,7 @@ sequenceDiagram
     Practitioner-->>ServiceRequest: Orders lab tests
     Practitioner-->>MedicationRequest: Prescribes medication
     Practitioner->>DocumentReference: Creates sick leave note (SV6)
-    Practitioner->>Composition: Finalyze journal entry
+    Practitioner->>Composition: Finalize journal entry
 ```
 <h1>Lab Order Service Request</h1>
 
