@@ -2,6 +2,186 @@
 <html lang="en">
 <body>
 
+<h1>FHIR Composition as the Main Structured Resource</h1>
+
+<h2>Structure Overview</h2>
+<p>This FHIR transaction Bundle organizes structured journal data while preserving the original free-text document in Base64. It ensures FHIR compliance, easy querying, and legal preservation.</p>
+
+<h2>📌 Journal Entry Sections</h2>
+<ul>
+    <li><strong>Käyntirivi</strong> (Visit summary: date, place, author, and author's title)</li>
+    <li><strong>Esitiedot</strong> (Patient history)</li>
+    <li><strong>Nykytila</strong> (Current state)</li>
+    <li><strong>Diagnoosi</strong> (Diagnosis with ICD-10 code)</li>
+    <li><strong>Suunnitelma</strong> (Plan/treatment)</li>
+</ul>
+
+<h2>🔗 Linked Resources</h2>
+<ul>
+    <li>Patient</li>
+    <li>Encounter</li>
+    <li>Practitioner (Author)</li>
+    <li>Condition</li>
+    <li>DocumentReference (optional)</li>
+</ul>
+
+<h2>📝 Sample FHIR Bundle</h2>
+
+<pre><code>{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-1",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "Ambulatory"
+        },
+        "subject": { "reference": "Patient/patient-1" },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/doctor-1",
+              "display": "Tohtori Kirjaaja, Yleislääkäri"
+            }
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/terveyskeskus",
+              "display": "Terveyskeskus Helsinki"
+            }
+          }
+        ],
+        "period": {
+          "start": "2024-03-15T09:00:00+02:00",
+          "end": "2024-03-15T09:30:00+02:00"
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Composition",
+        "id": "composition-1",
+        "status": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "1.2.246.537.6.12.2002.119",
+              "code": "11506-3",
+              "display": "Hoitokertomus"
+            }
+          ]
+        },
+        "subject": { "reference": "Patient/patient-1" },
+        "date": "2024-03-15",
+        "author": [{ "reference": "Practitioner/doctor-1" }],
+        "encounter": { "reference": "Encounter/encounter-1" },
+        "section": [
+          {
+            "title": "Käyntirivi",
+            "text": {
+              "status": "generated",
+              "div": "<div><b>Päivämäärä:</b> 2024-03-15<br><b>Paikka:</b> Terveyskeskus Helsinki<br><b>Kirjaaja:</b> Tohtori Kirjaaja<br><b>Kirjaajan titteli:</b> Yleislääkäri</div>"
+            }
+          },
+          {
+            "title": "Esitiedot",
+            "text": {
+              "status": "generated",
+              "div": "<div>Potilas valittelee olevansa kipiä</div>"
+            }
+          },
+          {
+            "title": "Nykytila",
+            "text": {
+              "status": "generated",
+              "div": "<div>Sanoo Aaa, kurkku punottaa</div>"
+            }
+          },
+          {
+            "title": "Diagnoosi",
+            "entry": [{ "reference": "Condition/condition-1" }]
+          },
+          {
+            "title": "Suunnitelma",
+            "text": {
+              "status": "generated",
+              "div": "<div>Loppuviikko saikkua. Buranaa tarvittaessa.</div>"
+            }
+          },
+          {
+            "title": "Original Document",
+            "entry": [{ "reference": "DocumentReference/docref-1" }]
+          }
+        ]
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-1",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10",
+              "code": "X0.0",
+              "display": "Angiina"
+            }
+          ],
+          "text": "Angiina"
+        },
+        "subject": { "reference": "Patient/patient-1" },
+        "encounter": { "reference": "Encounter/encounter-1" },
+        "recordedDate": "2024-03-15"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "docref-1",
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "1.2.246.537.6.12.2002.119",
+              "code": "11506-3",
+              "display": "Hoitokertomus"
+            }
+          ]
+        },
+        "subject": { "reference": "Patient/patient-1" },
+        "date": "2024-03-15",
+        "author": [{ "reference": "Practitioner/doctor-1" }],
+        "context": {
+          "encounter": [{ "reference": "Encounter/encounter-1" }]
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "data": "UG90aWxhcyB2YWxpdHRlbGVlIG9sZXZhbnNhIGtpcGlhCgpOeWt5dGlsYTpTYW5vbyBBYWEsIGt1cmtrdSBwdW5vdHRhYQpEaWFnbm9vc2k6IFgwLjAgQW5naWluYQpTdXVubml0ZWxtYTogTG9wcHV1aWtrbyBzYWlra3VhLiBCdXJhbmFhIHRhcnZpdHRhZXNzYQ=="
+            }
+          }
+        ]
+      }
+    }
+  ]
+}</code></pre>
 <h1>Clinical Note Sequence Diagram</h1>
 
 ```mermaid
