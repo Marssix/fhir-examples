@@ -6,23 +6,18 @@
 
 ```mermaid
 sequenceDiagram
-    participant Patient
     participant Practitioner
     participant Encounter
-    participant Condition
+    participant Composition
     participant ServiceRequest
     participant MedicationRequest
     participant DocumentReference
 
-    Patient->>Encounter: Starts a medical visit
-    Practitioner->>Encounter: Conducts assessment
-    Encounter->>Condition: Identifies a condition
-    Condition-->>ServiceRequest: Orders lab tests
-    Condition-->>MedicationRequest: Prescribes medication
-    ServiceRequest->>Practitioner: Practitioner reviews and approves lab order
-    MedicationRequest->>Practitioner: Practitioner reviews and approves medication order
-    Encounter->>DocumentReference: Creates sick leave note (SV6)
-    DocumentReference->>Patient: Sick note issued for employer/Kela
+    Practitioner->>Encounter: Starts a medical visit
+    Practitioner-->>ServiceRequest: Orders lab tests
+    Practitioner-->>MedicationRequest: Prescribes medication
+    Practitioner->>DocumentReference: Creates sick leave note (SV6)
+    Practitioner->>Composition: Finalyze journal entry
 ```
 <h1>Lab Order Service Request</h1>
 
@@ -61,6 +56,26 @@ sequenceDiagram
         "system": "urn:oid:1.2.246.537.6.98",
         "code": "6432",
         "display": "S -Kolesteroli, low density lipoproteiinit, analysoitu"
+      },
+      {
+        "system": "urn:oid:1.2.246.537.6.98",
+        "code": "6427",
+        "display": "S -Triglyseridit"
+      },
+      {
+        "system": "urn:oid:1.2.246.537.6.98",
+        "code": "1026",
+        "display": "S -Alaniiniaminotransferaasi"
+      },
+      {
+        "system": "urn:oid:1.2.246.537.6.98",
+        "code": "6354",
+        "display": "Pt-Glomerulussuodosnopeus, estimoitu, CKD-EPI-tutkimuksen kaava"
+      },
+      {
+        "system": "urn:oid:1.2.246.537.6.98",
+        "code": "1489",
+        "display": "S -Glutamyylitransferaasi"
       }
     ]
   },
