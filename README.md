@@ -87,7 +87,7 @@
             "title": "Käyntirivi",
             "text": {
               "status": "generated",
-              "div": "<div><b>Päivämäärä:</b> 2024-03-15<br><b>Paikka:</b> Terveyskeskus Helsinki<br><b>Kirjaaja:</b> Tohtori Kirjaaja<br><b>Kirjaajan titteli:</b> Yleislääkäri</div>"
+              "div": "&lt;div&gt;&lt;b&gt;Päivämäärä:&lt;/b&gt; 2024-03-15&lt;br&gt;&lt;b&gt;Paikka:&lt;/b&gt; Terveyskeskus Helsinki&lt;br&gt;&lt;b&gt;Kirjaaja:&lt;/b&gt; Tohtori Kirjaaja&lt;br&gt;&lt;b&gt;Kirjaajan titteli:&lt;/b&gt;  Yleislääkäri&lt;/div&gt;"
             }
           },
           {
@@ -201,7 +201,7 @@ sequenceDiagram
 ```
 <h1>Lab Order Service Request</h1>
 
-<p>This paragraph provides an implementation of a FHIR-compliant lab order <code>ServiceRequest</code> for Finnish healthcare systems.</p>
+<p>This chapter provides an implementation of a FHIR-compliant lab order <code>ServiceRequest</code> for Finnish healthcare systems.</p>
 
 <h2>🔹 Features</h2>
 <ul>
@@ -369,7 +369,9 @@ sequenceDiagram
   ]
 }</code></pre>
 
-<p>More info: <a href="https://www.kela.fi">Kela’s official website</a>.</p>
+<h2>📄 Example Sick Leave Note (A-todistus)</h2>
+
+![Preview](/a-todistus%20esimerkki.png)  
 
 <h2>💊 MedicationRequest</h2>
 <p>An example of a FHIR-compliant <code>MedicationRequest</code> can be found at: <a href="https://github.com/fhir-fi/finnish-base-profiles" target="_blank">Finnish Base Profiles Repository</a>.</p>
