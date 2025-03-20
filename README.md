@@ -72,7 +72,7 @@
         "type": {
           "coding": [
             {
-              "system": "1.2.246.537.6.12.2002.119",
+              "system": "urn:oid:1.2.246.537.6.12.2002.119",
               "code": "11506-3",
               "display": "Hoitokertomus"
             }
@@ -158,7 +158,7 @@
         "type": {
           "coding": [
             {
-              "system": "1.2.246.537.6.12.2002.119",
+              "system": "urn:oid:1.2.246.537.6.12.2002.119",
               "code": "11506-3",
               "display": "Hoitokertomus"
             }
