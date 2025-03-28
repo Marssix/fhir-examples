@@ -220,6 +220,11 @@
     <li><a href="https://validator.fhir.org"> FHIR Validator for troubleshooting</a></li>
 </ul>
 
+<h3>🔍 Validating Data with $validate</h3>
+
+<p>This function checks resource instances against the defined profiles to ensure they meet the required constraints.</p>
+<li><a href="https://github.com/Marssix/fhir-examples/blob/main/curl-samples/post-ok-fi-base-patient.zsh">Example of $validate in cURL</a></li>
+
 <h3>📚 References</h3>
 <ul>
     <li><a href="https://www.hl7.org/fhir/structuredefinition.html">FHIR StructureDefinition Documentation</a></li>
