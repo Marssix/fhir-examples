@@ -220,6 +220,8 @@
     <li><a href="https://validator.fhir.org"> FHIR Validator for troubleshooting</a></li>
 </ul>
 
+![Preview](/Firely-Forge.png)  
+
 <h3>🔍 Validating Data with $validate</h3>
 
 <p>This function checks resource instances against the defined profiles to ensure they meet the required constraints.</p>
