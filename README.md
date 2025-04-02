@@ -285,7 +285,9 @@ sequenceDiagram
 <h2>💊 MedicationRequest</h2>
 <p>An example of a FHIR-compliant <code>MedicationRequest</code> can be found at: <a href="https://github.com/fhir-fi/finnish-base-profiles" target="_blank">Finnish Base Profiles Repository</a>.</p>
 
-
+<h2>🔗 Links</h2>
+<li><a href="https://github.com/Marssix/fhir-examples/tree/main/curl-samples">Link to cURL Examples</a></li>
+<li><a href="https://github.com/Marssix/fhir-examples/blob/main/FHIR-Profiles.md">Link to FHIR Profiles Page</a></li>
 
 <h2>📝 License</h2>
 <p>MIT License - Free to use and modify.</p>
