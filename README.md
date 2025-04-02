@@ -85,6 +85,12 @@
   ]
 }
 </code></pre>
+
+<h2>📚 Resources</h2>
+<ul>
+    <li><a href="https://thl.fi/aiheet/tiedonhallinta-sosiaali-ja-terveysalalla/kirjaaminen" target="_blank">THL Journal Entry Documentation</a></li>
+</ul>
+
 <h1>Clinical Note Sequence Diagram</h1>
 
 ```mermaid
