@@ -216,7 +216,7 @@
 
 <h3>🛠️ Tools</h3>
 <ul>
-    <li><a href="https://fire.ly/products/forge"> Firefly Forge for creating FHIR Profiles</a></li>
+    <li><a href="https://fire.ly/products/forge"> Firely Forge for creating FHIR Profiles</a></li>
     <li><a href="https://validator.fhir.org"> FHIR Validator for troubleshooting</a></li>
 </ul>
 
