@@ -233,5 +233,9 @@
     <li><a href="https://hl7.fi/fhir/finnish-base-profiles">Finnish Base Profiles</a></li>
 </ul>
 
+<h2>🔗 Links</h2>
+<li><a href="https://github.com/Marssix/fhir-examples/tree/main/curl-samples">Link to cURL Examples</a></li>
+<li><a href="https://github.com/Marssix/fhir-examples/blob/main/README.md">Link to README Page</a></li>
+
 </body>
 </html>
